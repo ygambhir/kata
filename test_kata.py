@@ -7,22 +7,22 @@ import unittest
 
 class StringAddTests(unittest.TestCase):
 
-    def testBasic(self):
+    def test_empty_string(self):
         assert string_add('') == 0, 'BASIC TEST PASSED'
 
-    def testA(self):
+    def test_one_number(self):
         assert string_add('1') == 1, 'TEST A PASSED'
 
-    def testB(self):
+    def test_two_numbers(self):
         assert string_add('1,2') == 3
 
-    def testC(self):
+    def test_three_numbers(self):
         assert string_add('1,2,4') == 7
 
-    def testD(self):
+    def test_three_big_numbers(self):
         assert string_add('11,124,414') == 549
 
-    def testE(self):
+    def test_negative(self):
         assert string_add('-1,1,0') == 0
 
     def test_new_line(self):
