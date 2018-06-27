@@ -28,6 +28,11 @@ class StringAddTests(unittest.TestCase):
     def test_new_line(self):
         assert string_add('1\n2,3') == 6
 
+    def test_return_sum_with_semi_colon_delimiter(self):
+        assert string_add('//;\n1;2') == 3
+
+        
+
 
 if __name__ == '__main__':
     unittest.main()
