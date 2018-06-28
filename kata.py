@@ -12,5 +12,7 @@ def string_add(str):
     for i in range(0, len(arr)):
         small_arr = arr[i].split(delimiter)
         for element in small_arr:
-        	sum += int(element)
+            if (int(element)) < 0:
+                raise ValueError("no negatives allowed: " + element)
+            sum += int(element)
     return sum
