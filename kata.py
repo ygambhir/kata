@@ -3,16 +3,27 @@ def string_add(str):
     if not str:
         return sum
 
-    arr = str.split('\n')
+    sum = 0
+    if not str:
+        return sum
     delimiter = ','
     if str[0] == '/':
         delimiter = str[2]
+    str = str.replace("\n", delimiter)
+    arr = str.split(delimiter)
+    if str[0] == '/':
         arr.pop(0)
-    #str = str.replace("\n", ",")
+        arr.pop(0)
     for i in range(0, len(arr)):
-        small_arr = arr[i].split(delimiter)
-        for element in small_arr:
-            if (int(element)) < 0:
-                raise ValueError("no negatives allowed: " + element)
-            sum += int(element)
-    return sum
+        if int(arr[i]) < 0:
+            throw_negative_exception(arr)
+        sum += int(arr[i])
+    return sum 
+
+def throw_negative_exception(arr):
+    negatives = ''
+    for char in arr:
+        if int(char) < 0:
+            negatives += (' ' + char)
+    raise ValueError("no negatives allowed:" + negatives)
+    

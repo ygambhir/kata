@@ -26,6 +26,10 @@ class StringAddTests(unittest.TestCase):
        with self.assertRaisesRegex(ValueError, 'no negatives allowed: -1'):
           string_add('-1,0,1')
 
+    def test_throw_exception_when_multiple_negative_numbers_included(self):
+        with self.assertRaisesRegex(ValueError, 'no negatives allowed: -1 -1 -2'):
+            string_add('-1,0,-1,-2')
+
     def test_expected_result_with_new_line(self):
         assert string_add('1\n2,3') == 6
 
