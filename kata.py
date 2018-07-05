@@ -6,17 +6,7 @@ def string_add(str):
     sum = 0
     if not str:
         return sum
-    delimiter = ','
-    if str[0] == '/':
-        delimiter = str[2]
-
-    if delimiter == '[':
-        delimiter = ''
-        for char in str[3:]:
-            if char == ']':
-                break
-            else:
-                delimiter += char 
+    delimiter = determine_delimiter(str)
 
     str = str.replace("\n", delimiter)
     arr = str.split(delimiter)
@@ -38,4 +28,18 @@ def throw_negative_exception(arr):
         if int(char) < 0:
             negatives += (' ' + char)
     raise ValueError("no negatives allowed:" + negatives)
+
+def determine_delimiter(str):
+    delimiter = ','
+    if str[0] == '/':
+        delimiter = str[2]
+
+    if delimiter == '[':
+        delimiter = ''
+        for char in str[3:]:
+            if char == ']':
+                break
+            else:
+                delimiter += char 
+    return delimiter
     
