@@ -9,6 +9,7 @@ def string_add(str):
     delimiter = ','
     if str[0] == '/':
         delimiter = str[2]
+    
     str = str.replace("\n", delimiter)
     arr = str.split(delimiter)
     if str[0] == '/':
@@ -17,7 +18,10 @@ def string_add(str):
     for i in range(0, len(arr)):
         if int(arr[i]) < 0:
             throw_negative_exception(arr)
-        sum += int(arr[i])
+        if int(arr[i]) > 1000:
+            pass
+        else:
+            sum += int(arr[i])
     return sum 
 
 def throw_negative_exception(arr):

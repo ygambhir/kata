@@ -36,6 +36,8 @@ class StringAddTests(unittest.TestCase):
     def test_return_sum_with_semi_colon_delimiter(self):
         assert string_add('//;\n1;2') == 3
 
+    def test_ignore_numbers_over_1000(self):
+        assert string_add('1,2,1001') == 3
     
 
 
