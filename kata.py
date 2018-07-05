@@ -9,7 +9,15 @@ def string_add(str):
     delimiter = ','
     if str[0] == '/':
         delimiter = str[2]
-    
+
+    if delimiter == '[':
+        delimiter = ''
+        for char in str[3:]:
+            if char == ']':
+                break
+            else:
+                delimiter += char 
+
     str = str.replace("\n", delimiter)
     arr = str.split(delimiter)
     if str[0] == '/':

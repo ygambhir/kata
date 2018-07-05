@@ -38,7 +38,9 @@ class StringAddTests(unittest.TestCase):
 
     def test_ignore_numbers_over_1000(self):
         assert string_add('1,2,1001') == 3
-    
+
+    def test_expected_sum_delimiter_any_length(self):
+           assert string_add('//[***]\n1***2***3') == 6
 
 
 
