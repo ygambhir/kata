@@ -1,9 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from kata import string_add
+from scalc import string_add
 import unittest
-
+from io import StringIO
+import sys
+import os
 
 class StringAddTests(unittest.TestCase):
     
@@ -45,6 +47,16 @@ class StringAddTests(unittest.TestCase):
     def test_return_6_with_multiple_delimiters(self):
         assert string_add('//[*][%]\n1*2%3') == 6
 
+    def test_return_6_with_std_out(self):
+        try:
+            saved_stdout = sys.stdout
+            out = StringIO()
+            sys.stdout = out
+            string_add('1,2,3', out=out)
+            output = out.getvalue().strip()
+            assert output == '6'
+        finally:
+            sys.stdout = saved_stdout
 
 if __name__ == '__main__':
     unittest.main()
