@@ -6,7 +6,7 @@ import unittest
 
 
 class StringAddTests(unittest.TestCase):
-
+    
     def test_zero_when_empty_string(self):
         assert string_add('') == 0, 'BASIC TEST PASSED'
 
@@ -40,9 +40,13 @@ class StringAddTests(unittest.TestCase):
         assert string_add('1,2,1001') == 3
 
     def test_expected_sum_delimiter_any_length(self):
-           assert string_add('//[***]\n1***2***3') == 6
+        assert string_add('//[***]\n1***2***3') == 6
 
+    def test_return_6_with_multiple_delimiters(self):
+        assert string_add('//[*][%]\n1*2%3') == 6
 
+    def test_return_8_with_mutiple_complex_delimiters(self):
+        assert string_add('//[**][))][##]\n2**4##))2') == 8
 
 if __name__ == '__main__':
     unittest.main()
