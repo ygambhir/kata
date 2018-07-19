@@ -45,8 +45,6 @@ class StringAddTests(unittest.TestCase):
     def test_return_6_with_multiple_delimiters(self):
         assert string_add('//[*][%]\n1*2%3') == 6
 
-    def test_return_8_with_mutiple_complex_delimiters(self):
-        assert string_add('//[**][))][##]\n2**4##))2') == 8
 
 if __name__ == '__main__':
     unittest.main()

@@ -20,7 +20,7 @@ def string_add(str):
         arr.pop(0)
         arr.pop(0)
     for i in range(0, len(arr)):
-        if arr[i] == ']' or arr[i] == '':
+        if arr[i] == ']' or arr[i] == '][':
             continue
         if int(arr[i]) < 0:
             throw_negative_exception(arr)
